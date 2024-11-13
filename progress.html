@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Homepage</title>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<style>
+  body{
+    background-color: rgb(175, 235, 235);
+  }
+  *{
+    margin: 0 10px !important;
+    padding: 0;
+  }
+  .menu-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    color: white;
+    background-color: rgb(34, 52, 49);
+    display: block;
+    margin: 0;
+    padding: 0;
+    border-radius: 10px;
+  }
+  .menu-content ul li:hover{
+    background-color: rgb(38, 91, 81);
+  }
+  .menu-content ul {
+    margin: 0;
+    padding: 0;
+  }
+  .menu-content ul li a{
+    text-decoration: none;
+  }
+  .menu-button {
+    position: absolute;
+    left: 0;
+    margin: 0;
+  }
+  #logo-text {
+    position: absolute;
+    top: 1%;
+    left: 6%;
+  }
+  .notification{
+    position: absolute;
+    top: 1%;
+    right: 6%;
+    font-size: 24px;
+    color: rgb(60, 68, 105);
+  }
+  .favorites{
+    position: absolute;
+    top: 1%;
+    right: 3%;
+    font-size: 24px;
+    color: rgb(60, 68, 105)
+  }
+  .account{
+    position: absolute;
+    top: 1%;
+    right: 0%;
+    font-size: 24px;
+    color: rgb(60, 68, 105)
+  }
+  .homebt {
+    position: absolute;
+    top: 9%;
+    left: 0;
+    border-radius: 6px;
+  }
+  .exploreallbt {
+    position: absolute;
+    top: 9%;
+    left: 8%;
+    border-radius: 6px;
+  }
+  #filterselect {
+    position: absolute;
+    top: 9%;
+    left: 16%;
+    width: min-content;
+  }
+  #query {
+    position: absolute;
+    top: 9%;
+    right: 7%;
+    width: 50%;
+    border-radius: 30px;
+    border: lightgrey 1px solid;
+    opacity: 70%;
+  }
+  #searchbt {
+    position: absolute;
+    top: 9.5%;
+    right: 0%;
+    border-radius: 6px;
+    opacity: 80%;
+    text-align: center;
+    width: 6%;
+  }
+  #food {
+    position: absolute;
+    top: 18%;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top: black solid 2px;
+    padding-top: 1%;
+  }
+  #foodslideshow {
+    overflow: hidden;
+    height: 500px;
+    width: 600px;
+  }
+  #foodslideshow figure {
+    position: relative;
+    width: 600%;
+    animation: 18s foodslideshow infinite;
+  }
+  #foodslideshow figure img {
+    float: left;
+    width: 16%;
+    border-radius: 10px;
+  }
+  @keyframes foodslideshow {
+    0% {
+        left: 10;
+    }
+    10% {
+        left: 0;
+    }
+    20%{
+        left: -100%;
+    }
+    30% {
+        left: -100%;
+    }
+    40% {
+        left: -200%;
+    }
+    50% {
+        left: -200%;
+    }
+    60% {
+        left: -300%;
+    }
+    70% {
+        left: -300%;
+    }
+    80% {
+        left: -400%;
+    }
+    90% {
+        left: -400%;
+    }
+    100% {
+        left: 0;
+    }
+  }
+  .books {
+    position: absolute;
+    top: calc(18% + 70%);
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  #bookslideshow {
+    overflow: hidden;
+    height: 500px;
+    width: 600px;
+  }
+  #bookslideshow figure {
+    position: relative;
+    width: 600%;
+    animation: 18s bookslideshow infinite;
+  }
+  #bookslideshow figure img {
+    float: left;
+    width: 16%;
+    border-radius: 10px;
+  }
+  @keyframes bookslideshow {
+    0% {
+        left: 0;
+    }
+    10% {
+        left: 0;
+    }
+    20%{
+        left: -100%;
+    }
+    30% {
+        left: -100%;
+    }
+    40% {
+        left: -200%;
+    }
+    50% {
+        left: -200%;
+    }
+    60% {
+        left: -300%;
+    }
+    70% {
+        left: -300%;
+    }
+    80% {
+        left: -400%;
+    }
+    90% {
+        left: -400%;
+    }
+    100% {
+        left: 0;
+    }
+  }
+  .movies {
+    position: absolute;
+    top: calc(18% + 140%);
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  #movieslideshow {
+    overflow: hidden;
+    height: 800px;
+    width: 600px;
+  }
+  #movieslideshow figure {
+    position: relative;
+    width: 600%;
+    animation: 18s movieslideshow infinite;
+  }
+  #movieslideshow figure img {
+    float: left;
+    width: 16%;
+    border-radius: 10px;
+  }
+  #movieslideshow img {
+    height: 700px;
+  }
+  @keyframes movieslideshow {
+    0% {
+        left: 0;
+    }
+    10% {
+        left: 0;
+    }
+    20%{
+        left: -100%;
+    }
+    30% {
+        left: -100%;
+    }
+    40% {
+        left: -200%;
+    }
+    50% {
+        left: -200%;
+    }
+    60% {
+        left: -300%;
+    }
+    70% {
+        left: -300%;
+    }
+    80% {
+        left: -400%;
+    }
+    90% {
+        left: -400%;
+    }
+    100% {
+        left: 0;
+    }
+  }
+  .travel {
+    position: absolute;
+    top: calc(18% + 260%);
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  #travelslideshow {
+    overflow: hidden;
+    height: 500px;
+    width: 600px;
+  }
+  #travelslideshow figure {
+    position: relative;
+    width: 600%;
+    animation: 18s travelslideshow infinite;
+  }
+  #travelslideshow figure img {
+    float: left;
+    width: 16%;
+    border-radius: 10px;
+  }
+  @keyframes travelslideshow {
+    0% {
+        left: 0;
+    }
+    10% {
+        left: 0;
+    }
+    20%{
+        left: -100%;
+    }
+    30% {
+        left: -100%;
+    }
+    40% {
+        left: -200%;
+    }
+    50% {
+        left: -200%;
+    }
+    60% {
+        left: -300%;
+    }
+    70% {
+        left: -300%;
+    }
+    80% {
+        left: -400%;
+    }
+    90% {
+        left: -400%;
+    }
+    100% {
+        left: 0;
+    }
+  }
+  .footer {
+    position: absolute;
+    top: calc(18% + 330%);
+    left: 0;
+    width: 100%;
+    padding: 5% 0; 
+  }
+  .footer input,button {
+    border-radius: 5px;
+  }
+  .instagram,.facebook,.twitter {
+    font-size: 20px;
+  }
+  .instagram:hover{
+    color: rgb(215, 120, 136);
+  }
+  .facebook:hover {
+    color: rgb(75, 75, 240);
+  }
+  .twitter:hover {
+    color: black;
+  }
+  #aboutp{
+       height: 100%;
+       width: 80%;
+       color: white;
+       border-radius: 10px;
+       padding: 40px 30px 100px 40px;
+       font-size: 25px;
+       font-family: Arial, Helvetica, sans-serif;
+       text-align: left;
+       background-color: rgb(0, 0, 0, .6);
+       position: absolute;
+       left: 70px;
+       top: 0;
+       z-index: 1;
+       backdrop-filter: blur(20px);
+}
+#contactDiv * {
+            color: white;
+        }
+        #contactDiv i {
+            font-size: 40px;
+            padding: 10px;
+        }
+        #contactDiv{
+          background-color: rgba(47, 49, 25, 0.6);
+            height: 500px;
+            width: 60%;
+            z-index: 1;
+            backdrop-filter: blur(20px);
+            border-radius: 10px;
+            padding: 20px;
+            position: absolute;
+            top: 0;
+        }
+        #contactmail:hover {
+            color: rgb(18, 49, 223);
+        }
+        #contactmail{
+            color: white;
+            font-size: 20px;
+            padding-left: 10px;
+        }
+        #ig:hover {
+            color: rgb(209, 13, 127);
+        }
+        #fb:hover {
+            color: blue;
+        }
+        #wa:hover{
+            color: rgb(19, 214, 94);
+        }
+        #contactmail:hover {
+          color: rgb(245, 88, 88);
+          
+        }
+
+</style>
+</head>
+<body>
+  <button class="w3-button w3-black menu-button" onclick="toggleMenu()">Menu</button>
+  <div class="w3-container w3-hide menu-content" id="menuContent">
+    <ul class="w3-ul">
+      <li><a id="communityli">Community</a></li>
+      <li onclick="displayAbout()"><a id="aboutli" onclick="displayAbout()">About</a></li>
+      <li ><a id="serviceli">Services</a></li>
+      <li onclick="displayContact()"><a id="contactli" onclick="displayContact()">Contact</a></li>
+    </ul>
+  </div> 
+  <div class="w3-text logo-text" id="logo-text">Curiously</div>
+  <div class="w3-link notification" id="notification">
+    <a href="menu1.html"><i class="fa-solid fa-bell"></i></a>
+  </div>
+  <div class="w3-link favorites" id="favorites">
+      <a href="menu1.html">
+        <i class="fa-solid fa-heart"></i></a>
+  </div>
+  <div class="w3-link account" id="account">
+    <a href="signin.html" target="_parent"><i class="fa-solid fa-user"></i></a>
+  </div>
+  <nav class="w3-bar">
+    <div class="w3-bar-item home">
+      <button class="w3-button w3-green homebt"><i class="fa-solid fa-house"></i>Home</button>
+    </div>
+    <div class="w3-bar-item explore">
+      <button class="w3-button w3-green exploreallbt">Explore all</button>
+    </div>
+    <div class="w3-bar-item filter">
+      <form action="">
+        <select name="filter" id="filterselect" class="w3-select">
+          <option value="">Filter</option>
+          <option value="movies">Movies</option>
+          <option value="food">Food</option>
+          <option value="travel">Travel</option>
+          <option value="books">Books</option>
+        </select>
+      </form>
+    </div>
+    <div class="w3-bar-item search">
+      <form id="search-form">
+        <input type="search" id="query" name="query" placeholder="Search...." class="w3-input">
+        <button id="searchbt" class="w3-button w3-light-grey">Search</button>
+      </form>
+    </div>
+  </nav>
+  <section id="food" class="w3-container food">
+    <h2>Food</h2>
+    <div id="foodslideshow">
+      <figure>
+          <a href="menu1.html"><img src="food/767255.jpg" alt="Image 1" loading="lazy"></a>
+          <a href="menu1.html"><img src="food/767257 - Copy.jpg" alt="Image 2" loading="lazy"></a>
+          <a href="menu1.html"><img src="food/767270 - Copy.jpg" alt="Image 3" loading="lazy"></a>
+          <a href="menu1.html"><img src="food/pexels-daniel-reche-1556698.jpg" alt="Image 4" loading="lazy"></a>
+          <a href="menu1.html"><img src="food/pexels-pixabay-236795.jpg" alt="Image 5" loading="lazy"></a>
+          <a href="menu1.html"><img src="food/767255.jpg" alt="Image 6" loading="lazy"></a>
+      </figure>
+    </div>
+    <a href="foods.html" id="explore-food" class="w3-button w3-blue" target="_blank">Explore</a>
+  </section>
+  <section id="books" class="w3-container books">
+    <h2>Books</h2>
+    <div id="bookslideshow">
+      <figure>
+          <a href="menu1.html"><img src="book/book2.jpg" alt="Image 1" loading="lazy"></a>
+          <a href="menu1.html"><img src="book/book3.jpg" alt="Image 2" loading="lazy"></a>
+          <a href="menu1.html"><img src="book/book4.jpg" alt="Image 3" loading="lazy"></a>
+          <a href="menu1.html"><img src="book/book5.jpg" alt="Image 4" loading="lazy"></a>
+          <a href="menu1.html"><img src="book/book6.jpg" alt="Image 5" loading="lazy"></a>
+          <a href="menu1.html"><img src="book/book7.jpg" alt="Image 6" loading="lazy"></a>
+      </figure>
+    </div>
+    <a href="books.html" id="explore-books" class="w3-button w3-blue" target="_blank">Explore</a>
+  </section>
+  <section id="movies" class="w3-container movies">
+    <h2>Movies</h2>
+    <div id="movieslideshow">
+      <figure>
+        <a href="menu1.html"><img src="movie/oppenheimer-movie-poster-md.webp" alt="Image 1" loading="lazy"></a>
+        <a href="menu1.html"><img src="movie/Hidden Figures.jpg" alt="Image 2" loading="lazy"></a>
+        <a href="menu1.html"><img src="movie/Tenet.jpg" alt="Image 3" loading="lazy"></a>
+        <a href="menu1.html"><img src="movie/The last jedi.jpg" alt="Image 4" loading="lazy"></a>
+        <a href="menu1.html"><img src="movie/The Theory of everythng.jpg" alt="Image 5" loading="lazy"></a>
+        <a href="menu1.html"><img src="movie/g4tPgPn0sGZEMvoJWYWnxlgTTWG_4k.jpg" alt="Image 6" loading="lazy"></a>
+      </figure>
+    </div>
+    <a href="movies.html" id="explore-movies" class="w3-button w3-blue" target="_blank">Explore</a>
+  </section>
+  <section id="travel" class="w3-container travel">
+    <h2>Travel</h2>
+    <div id="travelslideshow">
+      <figure>
+          <a href="menu1.html"><img src="travel/arc de triomphe.jpg" alt="Image 1" loading="lazy"></a>
+          <a href="menu1.html"><img src="travel/datingscout-co3ZpejpkrQ-unsplash.jpg" alt="Image 2" loading="lazy"></a>
+          <a href="menu1.html"><img src="travel/ha long bay.jpg" alt="Image 3" loading="lazy"></a>
+          <a href="menu1.html"><img src="travel/joshua-rondeau-EIeVusiphj4-unsplash.jpg" alt="Image 4" loading="lazy"></a>
+          <a href="menu1.html"><img src="travel/mexico.jpg" alt="Image 5" loading="lazy"></a>
+          <a href="menu1.html"><img src="travel/niklas-ohlrogge-BkmdKnuAZtw-unsplash.jpg" alt="Image 6" loading="lazy"></a>
+      </figure>
+    </div>
+    <a href="" id="travelbt" class="w3-button w3-blue">Explore</a>
+  </section>
+  <footer class="w3-container w3-dark-grey footer">
+    <div class="w3-row" style="display: flex; justify-content: space-between;">
+      <div class="w3-col m6 social">
+        <p style="padding-bottom: 5px;">Follow us on</p>
+        <a href="menu1.html"><i class="fa-brands fa-instagram instagram"></i></a>
+        <a href="menu1.html"><i class="fa-brands fa-facebook facebook"></i></a>
+        <a href="menu1.html"><i class="fa-brands fa-x-twitter twitter"></i></a>
+      </div>
+      <div class="w3-col m6 subscribe">
+        <p style="padding-bottom: 5px;">For every update</p>
+        <form action="submit" class="w3-row" style="display: flex;">
+          <input type="text" placeholder="Enter Email..." class="w3-input w3-half">
+          <button class="w3-button w3-blue w3-half subscribebt">SUBSCRIBE</button>
+        </form>
+      </div>
+    </div>
+  </footer>
+  <p id="aboutp">Welcome to CURIOUSLY, a website <br><br>created as a part 
+    of college project <br><br>and out of passion for  discovering and <br><br>sharing the best in movies, books, <br><br>travel destinations and food. As a <br><br>one-man operation, this site is a <br><br>labor of love, designed to bring you <br><br>genuine recommendations.</p>
+    <div id="contactDiv">
+      <h1>Connect With Us</h1>
+              <a href="https://www.instagram.com/khruluw?igsh=Z3pyYTdpYzdyOHV5" target="_blank"><i id="ig" class="fa-brands fa-instagram"></i><br></a>
+              <a href=""><i id="fb" class="fa-brands fa-facebook-f"></i><br></a>
+              <a href="https://wa.me/+918787847834" target="_blank"><i id="wa" class="fa-brands fa-whatsapp"></i><br></a>
+              <h1>Mail us at</h1>
+              <a href="mailto:khruluwpfoze@gmail.com"><i id="contactmail" class="fa-regular fa-envelope"></i></a>
+              
+  </div>  
+  
+
+  <script>
+    function toggleMenu() {
+      var menuContent = document.getElementById("menuContent");
+      menuContent.classList.toggle("w3-hide");
+    }
+
+    document.addEventListener("click", function(event) {
+      var menuContent = document.getElementById("menuContent");
+      var menuButton = document.querySelector(".menu-button");
+      if (!menuContent.contains(event.target) && !menuButton.contains(event.target)) {
+        menuContent.classList.add("w3-hide");
+      }
+    });
+    var aboutp = document.getElementById('aboutp');
+aboutp.style.display = 'none';
+var aboutli = document.getElementById('aboutli');
+
+function displayAbout() {
+  aboutli.addEventListener("click", function(event) {
+    event.stopPropagation(); 
+    if (aboutp.style.display === 'none') {
+      aboutp.style.display = 'block';
+    } else {
+      aboutp.style.display = 'none';
+    }
+  });
+
+  document.addEventListener('click', function(event) {
+    if (!aboutp.contains(event.target) && !aboutli.contains(event.target)) {
+      aboutp.style.display = 'none';
+    }
+  });
+}
+var contactDiv = document.getElementById('contactDiv');
+contactDiv.style.display = 'none';
+var contactli = document.getElementById('contactli');
+
+function displayContact() {
+  contactli.addEventListener('click', function(event) {
+    event.stopPropagation(); 
+    if (contactDiv.style.display === 'none') {
+        contactDiv.style.display = 'block';
+    } else {
+        contactDiv.style.display = 'none';
+    }
+  });
+
+  document.addEventListener('click', function(event) {
+    if (!contactDiv.contains(event.target) && !contactli.contains(event.target)) {
+      contactDiv.style.display = 'none';
+    }
+  });
+}
+
+
+
+
+  </script>
+</body>
+</html>

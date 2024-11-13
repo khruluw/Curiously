@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+         html{
+            background-color: rgb(175, 235, 235);
+        }
+        #signin {
+            width: 700px;
+            height: 400px;
+            background-color: rgb(200, 228, 255);
+            border-radius: 20px;
+            position: absolute;
+            top: 10%;
+            left: 25%;
+        }
+        #accountp {
+            font-size: 50px;
+            text-align: center;
+        }
+        #signinbt {
+            height: 50px;
+            width: 200px;
+            border-radius: 30px;
+            font-size: 30px;
+            border: none;
+            position: absolute;
+            left: 120px;
+        }
+        #signupbt {
+            height: 50px;
+            width: 200px;
+            border-radius: 30px;
+            font-size: 30px;
+            border: none;
+            position: absolute;
+            left: 380px;
+        }
+        #signinbt:hover {
+           background-color: rgb(198, 194, 198);
+           height: 56px;
+           transition: .15s;
+        }
+        #signupbt:hover {
+           background-color: rgb(198, 194, 198);
+           height: 56px;
+           transition: .15s;
+        }
+        #login_with li {
+            list-style-type: none;
+            margin: 30px;
+        }
+        #login_with li a{
+            color: black;
+            font-size: 40px;
+        }
+        #login_with {
+            display: flex;
+            position: absolute;
+            top: 260px;
+            left: 120px;
+        }
+        #login_with li a:hover {
+            color: rgb(182, 132, 65);
+        }
+        #signinform {
+            display: none;
+            background-color: rgb(187, 218, 248);
+            font-size: 30px;
+            padding: 20px;
+            width: 50%;
+            position: relative;
+            bottom: 30%;
+            left: 25%;
+            border-radius: 20px;
+            margin-top: 10%;
+        }
+       #formdiv #signinform,#username,#password,#confirmpass,#email{
+        height: 27px;
+        width: 30%;
+        border-radius: 4px;
+        border: none;
+        font-size: 18px;
+       }
+       #submitbt {
+        height: 29px;
+        border-radius: 5px;
+        border: none;
+        width: fit-content;
+        font-size: 20px;
+       }
+       #submitbt:hover {
+        background-color: rgb(102, 99, 90);
+        color: white;
+        height: 30px;
+        transition: .15s;
+       }
+
+       #signindiv,#signupdiv{
+        display: none;
+       }
+       #signin {
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+       }
+    </style>
+</head>
+<body>
+    <div id="signin">
+        <p id="accountp">Account</p>
+        <button id="signinbt" onclick="signin()">Sign in</button>
+        <button id="signupbt" onclick="signup()">Sign up</button>
+        <ul id="login_with">
+            <li><a href=""><i class="fab fa-google"></i></a></li>
+            <li><a href=""><i class="fab fa-facebook"></i></a></li>
+            <li><a href=""><i class="fab fa-microsoft"></i></a></li>
+            <li><a href=""><i class="fab fa-twitter"></i></a></li>
+        </ul>
+    </div>
+    <div id="signupdiv">
+    <form onsubmit="return verify()" action="progress.html" id="signupform">
+        <label for="username" >Username: </label>
+        <input type="text" placeholder="username" id="username" name="username" required><br><br>
+        <label for="password" >Password: </label>
+        <input type="password" id="password" placeholder="password" required><br><br>
+        <label for="confirmpass" >Connfirm Password: </label>
+        <input type="password" id="confirmpass" placeholder="re enter password" required> <br><br>
+        <label for="email" >Email: </label>
+        <input type="email" id="email" name="email" placeholder="email" required><br><br>
+        <button type="submit" id="submitbt">Submit</button>
+    </form>
+</div>
+<div id="signindiv">
+    <form action="" id="siginform">
+        <label for="username" >Username: </label>
+        <input type="text" placeholder="username" id="username" name="username" required><br><br>
+        <label for="password" >Password: </label>
+        <input type="password" id="password" placeholder="password" required><br><br>
+        <label for="confirmpass" >Connfirm Password: </label>
+        <input type="password" id="confirmpass" placeholder="re enter password" required> <br><br>
+        <button type="submit" id="submitbt">Submit</button>
+    </form>
+</div>
+       <script>
+            var password = document.getElementById('password');
+            var confirm_pass = document.getElementById('confirmpass');
+            function verify() {
+                if (password.value !== confirm_pass.value){
+                    alert('Password Incorrect');
+                    return false;
+                } else {
+                    alert('password verified');
+                    return true;
+                }
+            }
+            function signup(){
+                document.getElementById('signupdiv').style.display = 'block';
+                document.getElementById('signin').style.display = 'none';
+                document.getElementById('signup').style.display ='none';
+            }
+            function signin(){
+                document.getElementById('signindiv').style.display ='block';
+                document.getElementById('signin').style.display ='none';
+                document.getElementById('').style.display ='none';
+            }
+       </script>
+</body>
+</html>

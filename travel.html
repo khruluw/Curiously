@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mapillary API Example</title>
+</head>
+<body>
+    <h1>Mapillary API Example</h1>
+    <div id="images"></div>
+
+    <script>
+        async function fetchMapillaryImages() {
+            const clientId = '	7974752919203963'; // Replace with your Mapillary client ID
+            const clientSecret = 'MLY|7974752919203963|b03768989594442694f2cb5129c9222d'; // Replace with your Mapillary client secret
+
+            // Get access token using client credentials grant flow
+            const response = await fetch('https://www.mapillary.com/connect/token', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+                body: `grant_type=client_credentials&client_id=${clientId}&client_secret=${clientSecret}`
+            });
+
+            if (!response.ok) {
+                console.error('Failed to obtain access token');
+                return;
+            }
+
+            const data = await response.json();
+            const accessToken = data.access_token;
+
+            // Fetch images using the access token
+            const apiUrl = 'https://a.mapillary.com/v3/images';
+            const imagesResponse = await fetch(apiUrl, {
+                headers: {
+                    'Authorization': `Bearer ${accessToken}`
+                }
+            });
+
+            if (!imagesResponse.ok) {
+                console.error('Failed to fetch Mapillary images');
+                return;
+            }
+
+            const imagesData = await imagesResponse.json();
+            console.log('Mapillary images:', imagesData);
+        }
+
+        // Fetch Mapillary images when the page loads
+        fetchMapillaryImages();
+    </script>
+</body>
+</html>

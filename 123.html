@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Carousel</title>
+    <style>
+        body {
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+
+        .carousel {
+            width: 80%;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .carousel-wrapper {
+            display: flex;
+            animation: slide 15s linear infinite;
+            width: calc(100% * 6); /* Adjust based on the number of items */
+        }
+
+        .carousel-item {
+            flex: 1;
+            position: relative;
+            min-width: 100%;
+            box-sizing: border-box;
+            padding: 0 10px; /* Adjust the padding as needed */
+        }
+
+        .carousel-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 10px;
+        }
+
+        .carousel-item.main {
+            min-width: 120%; /* Adjust to make it larger */
+        }
+
+        .caption {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        @keyframes slide {
+            0% { transform: translateX(0); }
+            16.66% { transform: translateX(0); }
+            33.33% { transform: translateX(-16.66%); }
+            50% { transform: translateX(-33.33%); }
+            66.66% { transform: translateX(-50%); }
+            83.33% { transform: translateX(-66.66%); }
+            100% { transform: translateX(-83.33%); }
+        }
+    </style>
+</head>
+<body>
+    <div class="carousel">
+        <div class="carousel-wrapper">
+            <div class="carousel-item">
+                <img src="https://via.placeholder.com/800x400.png?text=Image+1" alt="Image 1">
+            </div>
+            <div class="carousel-item main">
+                <img src="https://via.placeholder.com/800x400.png?text=Croissant+French+Toast+with+Strawberries" alt="Croissant French Toast with Strawberries">
+                <div class="caption">Croissant French Toast with Strawberries</div>
+            </div>
+            <div class="carousel-item">
+                <img src="https://via.placeholder.com/800x400.png?text=Image+3" alt="Image 3">
+            </div>
+            <div class="carousel-item">
+                <img src="https://via.placeholder.com/800x400.png?text=Image+1" alt="Image 1">
+            </div>
+            <div class="carousel-item main">
+                <img src="https://via.placeholder.com/800x400.png?text=Croissant+French+Toast+with+Strawberries" alt="Croissant French Toast with Strawberries">
+                <div class="caption">Croissant French Toast with Strawberries</div>
+            </div>
+            <div class="carousel-item">
+                <img src="https://via.placeholder.com/800x400.png?text=Image+3" alt="Image 3">
+            </div>
+        </div>
+    </div>
+</body>
+</html>
